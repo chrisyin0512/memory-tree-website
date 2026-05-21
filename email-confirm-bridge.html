@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Memory Tree</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #28231d;
+      --muted: #73685d;
+      --paper: #fffaf2;
+      --line: #ead9c1;
+      --accent: #a86c16;
+      --accent-dark: #85500f;
+      --background: #f5efe6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 32px 18px;
+      background: var(--background);
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    main {
+      width: min(560px, 100%);
+      padding: 34px 30px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--paper);
+      box-shadow: 0 20px 55px rgba(82, 57, 25, 0.12);
+    }
+
+    .brand {
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(34px, 8vw, 48px);
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    a.button {
+      display: block;
+      width: 100%;
+      padding: 17px 20px;
+      border-radius: 14px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 17px;
+      font-weight: 800;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    a.button:active {
+      background: var(--accent-dark);
+    }
+
+    .hint {
+      margin-top: 18px;
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="brand">Memory Tree</p>
+    <h1 id="title">Open Memory Tree</h1>
+    <p id="message">Tap the button below to finish confirming your account in the app. Chrome and some email browsers require this tap before they can open Memory Tree.</p>
+    <a class="button" id="openApp" href="#">Open Memory Tree</a>
+    <p class="hint" id="hint">If you pasted the link into a browser, this button is the final step.</p>
+  </main>
+  <script>
+    (function () {
+      var q = window.location.search || "";
+      var h = window.location.hash || "";
+      var target = "memorytree://auth-callback" + q + h;
+      var button = document.getElementById("openApp");
+
+      if (!q && !h) {
+        document.getElementById("title").textContent = "Open Memory Tree";
+        document.getElementById("message").textContent =
+          "This confirmation link is missing the sign-in details. Open Memory Tree and sign in with your email and password.";
+        button.href = "memorytree://";
+        document.getElementById("hint").textContent =
+          "If you just confirmed your email, try opening the newest confirmation email again.";
+        return;
+      }
+
+      button.href = target;
+      button.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = target;
+      });
+
+      window.setTimeout(function () {
+        window.location.href = target;
+      }, 750);
+    })();
+  </script>
+</body>
+</html>
