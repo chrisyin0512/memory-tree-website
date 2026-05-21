@@ -97,11 +97,11 @@ a {
 
 .hero {
   display: grid;
-  width: min(1500px, calc(100% - 48px));
-  grid-template-columns: minmax(420px, 0.58fr) minmax(0, 1.42fr);
-  gap: 36px;
+  width: min(1560px, calc(100% - 40px));
+  grid-template-columns: minmax(400px, 0.48fr) minmax(0, 1.52fr);
+  gap: 8px;
   align-items: center;
-  padding: 74px 0 62px;
+  padding: 62px 0 54px;
 }
 
 .eyebrow {
@@ -123,7 +123,7 @@ h3 {
 
 h1 {
   margin: 0;
-  font-size: clamp(46px, 7vw, 76px);
+  font-size: clamp(46px, 5.9vw, 68px);
 }
 
 h2 {
@@ -170,7 +170,7 @@ h3 {
 }
 
 .hero-art {
-  width: min(100%, 980px);
+  width: min(100%, 1120px);
   justify-self: end;
   border-radius: 22px;
   background: transparent;
