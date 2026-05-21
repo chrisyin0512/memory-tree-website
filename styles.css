@@ -182,6 +182,35 @@ h3 {
   height: auto;
 }
 
+.screenshot-board {
+  display: grid;
+  grid-template-columns: 1.16fr 0.92fr 0.92fr;
+  gap: 12px;
+  padding: 14px;
+  background: linear-gradient(135deg, #fffaf3 0%, #f7eddf 100%);
+}
+
+.screenshot-card {
+  margin: 0;
+  min-width: 0;
+  aspect-ratio: 424 / 920;
+  border: 1px solid rgba(98, 77, 56, 0.16);
+  border-radius: 18px;
+  background: #fffaf4;
+  box-shadow: 0 14px 30px rgba(62, 47, 32, 0.13);
+  overflow: hidden;
+}
+
+.screenshot-card.featured {
+  grid-row: span 2;
+}
+
+.screenshot-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .section {
   padding: 58px 0;
 }
@@ -318,6 +347,22 @@ details p {
   .hero {
     grid-template-columns: 1fr;
     padding-top: 46px;
+  }
+
+  .screenshot-board {
+    grid-template-columns: repeat(5, minmax(150px, 1fr));
+    gap: 10px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .screenshot-card {
+    scroll-snap-align: center;
+  }
+
+  .screenshot-card.featured {
+    grid-row: auto;
   }
 
   .grid,
