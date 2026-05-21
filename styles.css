@@ -97,8 +97,9 @@ a {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
-  gap: 48px;
+  width: min(1260px, calc(100% - 40px));
+  grid-template-columns: minmax(0, 0.78fr) minmax(420px, 1.22fr);
+  gap: 50px;
   align-items: center;
   padding: 74px 0 62px;
 }
@@ -169,10 +170,9 @@ h3 {
 }
 
 .hero-art {
-  border: 1px solid var(--line);
-  border-radius: 28px;
-  background: var(--warm);
-  box-shadow: var(--shadow);
+  border-radius: 22px;
+  background: transparent;
+  filter: drop-shadow(0 28px 54px rgba(87, 66, 42, 0.13));
   overflow: hidden;
 }
 
