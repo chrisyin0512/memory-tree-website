@@ -8,13 +8,15 @@
   <style>
     :root {
       color-scheme: light;
-      --ink: #28231d;
-      --muted: #73685d;
-      --paper: #fffaf2;
-      --line: #ead9c1;
-      --accent: #a86c16;
-      --accent-dark: #85500f;
-      --background: #f5efe6;
+      --ink: #18322c;
+      --muted: #52665f;
+      --paper: #ffffff;
+      --line: #dde3df;
+      --accent: #2f665c;
+      --accent-dark: #18322c;
+      --spring: #dcebbe;
+      --mint: #a9dcd5;
+      --background: #fafafa;
     }
 
     * {
@@ -39,7 +41,7 @@
       border: 1px solid var(--line);
       border-radius: 22px;
       background: var(--paper);
-      box-shadow: 0 20px 55px rgba(82, 57, 25, 0.12);
+      box-shadow: 0 20px 55px rgba(24, 50, 44, 0.09);
     }
 
     .brand {
@@ -69,8 +71,8 @@
       width: 100%;
       padding: 17px 20px;
       border-radius: 14px;
-      background: var(--accent);
-      color: #fff;
+      background: linear-gradient(135deg, var(--spring), var(--mint));
+      color: var(--accent-dark);
       font-size: 17px;
       font-weight: 800;
       text-align: center;
@@ -78,7 +80,7 @@
     }
 
     a.button:active {
-      background: var(--accent-dark);
+      filter: brightness(0.98);
     }
 
     .hint {
